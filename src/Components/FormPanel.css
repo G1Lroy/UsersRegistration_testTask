@@ -1,0 +1,14 @@
+.upload-group {
+    padding: 10px;
+    border: 1px solid gainsboro;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 300px;
+    display: flex;
+}
+
+.upload-group--error {
+
+    border: 1px solid red;
+
+}
