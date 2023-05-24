@@ -1,14 +1,140 @@
-.upload-group {
-    padding: 10px;
-    border: 1px solid gainsboro;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 300px;
+.form-panel {
     display: flex;
+    flex-direction: column;
+    width: 380px;
 }
 
-.upload-group--error {
+.input-group {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
 
-    border: 1px solid red;
+}
 
+.input-container {
+    position: relative;
+    max-height: 55px;
+
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #D0CFCF;
+    border-radius: 4px;
+}
+
+.input-label {
+    cursor: default;
+
+    color: transparent;
+    padding: 1px;
+
+    font-size: 12px;
+    line-height: 1.17;
+
+    position: absolute;
+    top: -7px;
+    left: 15px;
+
+    transition: all 0.2s ease-in;
+
+}
+
+.input-label--active {
+    color: #7E7E7E;
+    background-color: #fafafa;
+}
+
+.radio-group {
+    margin-top: 47px;
+}
+
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+.radio-item {
+    margin-top: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #D0CFCF;
+    border-radius: 50%;
+    background-color: transparent;
+
+}
+
+.radio-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #00BDD3;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+input[type="radio"]:checked+.radio-icon::after {
+    opacity: 1;
+}
+
+input[type="radio"]:checked+.radio-icon {
+    border: 1px solid #00BDD3
+}
+.radio-label {
+    margin-left: 12px;
+}
+
+
+
+.upload-group {
+    margin-top: 47px;
+    background: #F8F8F8;
+    border: 1px solid #D0CFCF;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+
+}
+
+.upload-label {
+    color: #7E7E7E;
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 15px;
+}
+
+.preview-file {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.error-message {
+    color: #CB3D40;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.15;
+    padding: 4px 0 0 15px;
+}
+
+.error-message--grey {
+    color: #7E7E7E;
+}
+
+
+.border--error {
+    border: 2px solid #CB3D40;
 }

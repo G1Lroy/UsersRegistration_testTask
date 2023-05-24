@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import UserList from './Components/UserList';
+import UserList from './components/UserList';
 import { sortByNewest } from './utils/sortByNewest';
-import FormPanel from './Components/FormPanel';
+import FormPanel from './components/FormPanel';
 import { useFetch } from './hooks/useFetch';
 import { apiRequest } from './APIservice/ApiService';
 
@@ -32,7 +32,7 @@ function App() {
     const response = await apiRequest.getToken()
     setToken(response)
   }, 0)
-  const [fetchNEwUser, isNewUserLoad, newUserError] = useFetch(apiRequest.postUser, 300);
+  const [fetchNEwUser, isNewUserLoad, newUserError] = useFetch(apiRequest.postUser, 200);
 
   const resetUserList = () => {
     setUserList([]);
@@ -41,12 +41,11 @@ function App() {
   const loadMoreUsers = () => setUsersURL(pagination.next)
 
   useEffect(() => {
-    fetchUsersData()
+    // fetchUsersData()
   }, [usersURL])
 
   useEffect(() => {
     fetchPosList()
-    fetchToken()
   }, [])
 
   const handleSubmit = async (values, resetForm) => {
@@ -59,6 +58,7 @@ function App() {
     formData.append("photo", values.photo);
     formData.append("registration_timestam", Date.now());
 
+    await fetchToken()
     await fetchNEwUser(token, formData)
 
     resetForm();
@@ -70,8 +70,8 @@ function App() {
   return (
     <div className="App">
 
-      <div>
-        Working with GET request
+      <div className='users-section'>
+        <h2>Working with GET request</h2>
         {usersDataError && <div>{usersDataError.toString()}</div>}
         {isUsersDataLoad ? <div>Loading....</div> :
           <UserList
@@ -85,7 +85,8 @@ function App() {
 
       </div>
 
-      <div>Working with POST request
+      <div className='form-section'>
+        <h2>Working with POST request</h2>
         <FormPanel
           handleSubmit={handleSubmit}
           positionsData={positionsData}

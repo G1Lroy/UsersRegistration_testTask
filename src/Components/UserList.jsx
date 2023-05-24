@@ -1,33 +1,26 @@
 import React from "react";
+import UserItem from "./UserItem";
 
 const UserList = ({ userList, pagination, loadMoreUsers, resetUserList }) => {
   return (
-    <div>
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          flexWrap: "wrap",
-          justifyContent: "center",
-        }}
-      >
-        {userList.map((user) => (
-          <ul key={user.registration_timestam}>
-            <li>{user.name}</li>
-            <li>
-              <img src={user.photo}></img>
-            </li>
-            <li>{user.email}</li>
-            <li>{user.phone}</li>
-            <li>{user.position}</li>
-          </ul>
-        ))}
-      </div>
+    <div
+      style={{
+        display: "flex",
+        gap: "20px",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      {userList.map((user) => (
+        <UserItem user={user} />
+      ))}
+
       <button disabled={!pagination.next} onClick={loadMoreUsers}>
         Show more
       </button>
-      <button disabled={!pagination.prev} onClick={resetUserList}>
-        X
+      <button hidden={!pagination.prev} onClick={resetUserList}>
+        Refresh
       </button>
     </div>
   );

@@ -1,0 +1,13 @@
+.upload-button {
+    padding: 15px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.87);
+    border: 1px solid rgba(0, 0, 0, 0.87);
+    border-radius: 4px 0px 0px 4px;
+}
+
+.upload-button--error {
+    border-radius: 0;
+    border: none;
+    border-right: 2px solid #CB3D40;
+}
