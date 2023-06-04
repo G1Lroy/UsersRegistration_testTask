@@ -1,11 +1,9 @@
 .form-panel {
     display: flex;
     flex-direction: column;
-    width: 380px;
 }
 
 .input-group {
-    margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -85,7 +83,6 @@ input[type="radio"] {
     border-radius: 50%;
     background-color: #00BDD3;
     opacity: 0;
-    transition: opacity 0.2s ease-in-out;
 }
 
 input[type="radio"]:checked+.radio-icon::after {
@@ -95,6 +92,7 @@ input[type="radio"]:checked+.radio-icon::after {
 input[type="radio"]:checked+.radio-icon {
     border: 1px solid #00BDD3
 }
+
 .radio-label {
     margin-left: 12px;
 }
@@ -102,7 +100,7 @@ input[type="radio"]:checked+.radio-icon {
 
 
 .upload-group {
-    margin-top: 47px;
+    margin-top: 50px;
     background: #F8F8F8;
     border: 1px solid #D0CFCF;
     border-radius: 4px;
@@ -115,11 +113,12 @@ input[type="radio"]:checked+.radio-icon {
     color: #7E7E7E;
     font-size: 16px;
     line-height: 1.4;
-    padding: 15px;
+
 }
 
 .preview-file {
     color: rgba(0, 0, 0, 0.87);
+
 }
 
 .error-message {
@@ -137,4 +136,9 @@ input[type="radio"]:checked+.radio-icon {
 
 .border--error {
     border: 2px solid #CB3D40;
+}
+
+.buttons-group {
+    margin-top: 40px;
+    text-align: center;
 }

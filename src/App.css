@@ -3,9 +3,21 @@
 .App {
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.55;
   display: flex;
+  gap: 140px;
   align-items: center;
   flex-direction: column;
-  /* text-align: center; */
+  text-align: center;
+
+  color: #000000de;
+}
+
+.section-heading {
+  font-size: 40px;
+  line-height: 40px;
+  padding-bottom: 50px;
+}
+.form-section {
+  padding-bottom: 100px;
 }

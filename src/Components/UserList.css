@@ -1,0 +1,12 @@
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 370px));
+    justify-items: center;
+    gap: 30px;
+}
+.user-list-buttons{
+    margin-top: 50px;
+}
+.user-list-buttons > * {
+    margin: 0 15px;
+}

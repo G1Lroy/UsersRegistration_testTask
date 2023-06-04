@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import validationSchema from "../utils/validationSchema";
 import "./FormPanel.css";
 import UploadButton from "./UI/buttons/UploadButton";
+import CommonButton from "./UI/buttons/CommonButton";
+
 
 const FormPanel = ({ positionsData, isPosListLoad, handleSubmit }) => {
   const fileInputRef = useRef(null);
@@ -40,7 +42,7 @@ const FormPanel = ({ positionsData, isPosListLoad, handleSubmit }) => {
         photo: null,
       }}
       onSubmit={formHandler}
-      validationSchema={validationSchema}
+      // validationSchema={validationSchema}
     >
       {({ values, setFieldValue, errors, touched }) => (
         <Form className="form-panel">
@@ -128,7 +130,7 @@ const FormPanel = ({ positionsData, isPosListLoad, handleSubmit }) => {
                       setFieldValue("photo", null);
                     }}
                   >
-                    Remove
+                    Clear
                   </UploadButton>
                   <div className="preview-file">{values.photo.name}</div>
                 </>
@@ -156,8 +158,10 @@ const FormPanel = ({ positionsData, isPosListLoad, handleSubmit }) => {
             />
           </>
 
-          <div className="button-group">
-            <button type="submit">Sign up</button>
+          <div className="buttons-group">
+            <CommonButton errors={Object.keys(errors).length > 0} type="submit">
+              Sign up
+            </CommonButton>
           </div>
         </Form>
       )}

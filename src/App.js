@@ -1,17 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import UserList from './components/UserList';
 import { sortByNewest } from './utils/sortByNewest';
 import FormPanel from './components/FormPanel';
 import { useFetch } from './hooks/useFetch';
 import { apiRequest } from './APIservice/ApiService';
+import SuccessReg from './components/SuccessReg';
+
+import HeaderContent from './components/HeaderContent';
 
 function App() {
+  const formRef = useRef()
+  const usersRef = useRef()
   const [token, setToken] = useState('')
   const [positionsData, setPositionsData] = useState([])
   const [userList, setUserList] = useState([])
   const [usersURL, setUsersURL] = useState();
   const [pagination, setPagination] = useState({ prev: "", next: "" })
+  const [successMessage, setSuccessMessage] = useState(false)
 
   const [fetchUsersData, isUsersDataLoad, usersDataError] = useFetch(async () => {
     const response = await apiRequest.getUsersList(usersURL)
@@ -34,6 +40,8 @@ function App() {
   }, 0)
   const [fetchNEwUser, isNewUserLoad, newUserError] = useFetch(apiRequest.postUser, 200);
 
+
+
   const resetUserList = () => {
     setUserList([]);
     setUsersURL()
@@ -41,7 +49,7 @@ function App() {
   const loadMoreUsers = () => setUsersURL(pagination.next)
 
   useEffect(() => {
-    // fetchUsersData()
+    fetchUsersData()
   }, [usersURL])
 
   useEffect(() => {
@@ -58,20 +66,37 @@ function App() {
     formData.append("photo", values.photo);
     formData.append("registration_timestam", Date.now());
 
-    await fetchToken()
-    await fetchNEwUser(token, formData)
+    // await fetchToken()
+    // await fetchNEwUser(token, formData)
 
+    showMessageAfterReg();
     resetForm();
     resetUserList();
     fetchUsersData();
+
   };
+
+  const showMessageAfterReg = () => {
+
+    setSuccessMessage(true)
+
+    setTimeout(() => {
+      setSuccessMessage(false)
+    }, 3000)
+  }
 
 
   return (
     <div className="App">
+      
+      <HeaderContent 
+      formRef={formRef} 
+      usersRef={usersRef}>
 
-      <div className='users-section'>
-        <h2>Working with GET request</h2>
+      </HeaderContent>
+
+      <main ref={usersRef} className='users-section'>
+        <h1 className='section-heading'>Working with GET request</h1>
         {usersDataError && <div>{usersDataError.toString()}</div>}
         {isUsersDataLoad ? <div>Loading....</div> :
           <UserList
@@ -83,19 +108,23 @@ function App() {
           </UserList>
         }
 
-      </div>
+      </main>
 
-      <div className='form-section'>
-        <h2>Working with POST request</h2>
-        <FormPanel
-          handleSubmit={handleSubmit}
-          positionsData={positionsData}
-          isPosListLoad={isPosListLoad}
-          posListError={posListError}
-        >
-        </FormPanel>
-      </div>
-
+      <section ref={formRef} className='form-section'>
+        {successMessage
+          ? <SuccessReg></SuccessReg>
+          : <>
+            <h1 className='section-heading'>Working with POST request</h1>
+            <FormPanel
+              handleSubmit={handleSubmit}
+              positionsData={positionsData}
+              isPosListLoad={isPosListLoad}
+              posListError={posListError}
+            >
+            </FormPanel>
+          </>
+        }
+      </section>
 
     </div>
   );
