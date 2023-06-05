@@ -4,13 +4,14 @@
     height: 255px;
 
     text-align: center;
-   
+
     background: #FFFFFF;
     border-radius: 10px;
 
 }
 
 .user-item li {
+    cursor: pointer;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
@@ -21,6 +22,7 @@
     border-radius: 50%;
     vertical-align: middle;
 }
+
 .user-name {
     padding: 20px 0;
 }

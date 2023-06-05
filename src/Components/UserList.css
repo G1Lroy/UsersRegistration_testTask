@@ -4,9 +4,18 @@
     justify-items: center;
     gap: 30px;
 }
-.user-list-buttons{
+
+.user-list-buttons {
     margin-top: 50px;
 }
-.user-list-buttons > * {
+
+.user-list-buttons>* {
     margin: 0 15px;
 }
+
+
+#my-tooltip {
+    padding: 3px 16px;
+    background-color: #000000de;
+}
+

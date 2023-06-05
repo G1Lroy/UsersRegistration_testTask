@@ -4,7 +4,7 @@ import validationSchema from "../utils/validationSchema";
 import "./FormPanel.css";
 import UploadButton from "./UI/buttons/UploadButton";
 import CommonButton from "./UI/buttons/CommonButton";
-
+import Loader from "./UI/loader/Loader";
 
 const FormPanel = ({ positionsData, isPosListLoad, handleSubmit }) => {
   const fileInputRef = useRef(null);
@@ -91,7 +91,7 @@ const FormPanel = ({ positionsData, isPosListLoad, handleSubmit }) => {
                 </div>
               ))
             ) : (
-              <div>loading...</div>
+              <Loader></Loader>
             )}
             <ErrorMessage
               name="position"

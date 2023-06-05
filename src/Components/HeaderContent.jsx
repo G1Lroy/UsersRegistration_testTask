@@ -1,15 +1,12 @@
 import React from "react";
 import CommonButton from "./UI/buttons/CommonButton";
 import headerLogo from "./../assets/header-logo.svg";
+import { scrollToEllement } from "./../utils/scrollToElement";
 import "./HeaderContent.css";
 
 const HeaderContent = ({ formRef, usersRef }) => {
-  const scrollToEllement = (ref) => {
-    window.scrollTo({ top: ref.current.offsetTop });
-  };
   return (
     <header className="header">
-
       <menu className="header-menu">
         <div className="header-menu--wrapper">
           <div className="header-logo">
@@ -41,7 +38,6 @@ const HeaderContent = ({ formRef, usersRef }) => {
           Sign up
         </CommonButton>
       </div>
-      
     </header>
   );
 };
