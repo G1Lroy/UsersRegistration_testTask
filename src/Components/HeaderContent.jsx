@@ -6,7 +6,7 @@ import "./HeaderContent.css";
 
 const HeaderContent = ({ formRef, usersRef }) => {
   return (
-    <header className="header">
+    <>
       <menu className="header-menu">
         <div className="header-menu--wrapper">
           <div className="header-logo">
@@ -38,7 +38,7 @@ const HeaderContent = ({ formRef, usersRef }) => {
           Sign up
         </CommonButton>
       </div>
-    </header>
+    </>
   );
 };
 

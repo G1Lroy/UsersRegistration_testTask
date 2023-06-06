@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3, minmax(0, 370px));
     justify-items: center;
     gap: 30px;
+    padding: 0 30px;
 }
 
 .user-list-buttons {
@@ -13,9 +14,32 @@
     margin: 0 15px;
 }
 
-
 #my-tooltip {
     padding: 3px 16px;
-    background-color: #000000de;
+    background-color: rgba(0, 0, 0, 0.87);
 }
 
+
+
+@media (max-width: 1024px) {
+    .cards-wrapper {
+        padding: 0 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cards-wrapper {
+        grid-template-columns: repeat(2, minmax(0, 345px));
+        gap: 15px;
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 577px) {
+    .cards-wrapper {
+        grid-template-columns: minmax(0, 328px);
+        gap: 20px;
+        padding: 0 16px;
+        justify-content: center;
+    }
+}

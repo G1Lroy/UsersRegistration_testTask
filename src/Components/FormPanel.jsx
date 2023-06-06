@@ -1,17 +1,19 @@
 import React, { useRef } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import validationSchema from "../utils/validationSchema";
-import "./FormPanel.css";
 import UploadButton from "./UI/buttons/UploadButton";
 import CommonButton from "./UI/buttons/CommonButton";
 import Loader from "./UI/loader/Loader";
+import "./FormPanel.css";
 
 const FormPanel = ({ positionsData, isPosListLoad, handleSubmit }) => {
   const fileInputRef = useRef(null);
+
   const formHandler = (values, { resetForm }) => {
     handleSubmit(values, resetForm);
     fileInputRef.current.value = null;
   };
+
   const inputs = [
     {
       type: "text",
@@ -42,7 +44,7 @@ const FormPanel = ({ positionsData, isPosListLoad, handleSubmit }) => {
         photo: null,
       }}
       onSubmit={formHandler}
-      // validationSchema={validationSchema}
+      validationSchema={validationSchema}
     >
       {({ values, setFieldValue, errors, touched }) => (
         <Form className="form-panel">
@@ -105,6 +107,8 @@ const FormPanel = ({ positionsData, isPosListLoad, handleSubmit }) => {
             <div
               className={`upload-group ${
                 touched.photo && errors.photo ? "border--error" : ""
+                // что бы все работало коректно нужно именно такое условие
+                // но оно протиоречит логике
               }`}
             >
               <input

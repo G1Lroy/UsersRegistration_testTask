@@ -84,10 +84,12 @@ function App() {
   return (
     <div className="App">
 
-      <HeaderContent
-        formRef={formRef}
-        usersRef={usersRef}>
-      </HeaderContent>
+      <header className="header">
+        <HeaderContent
+          formRef={formRef}
+          usersRef={usersRef}>
+        </HeaderContent>
+      </header>
 
       <main ref={usersRef} className='users-section'>
         <h1 className='section-heading'>Working with GET request</h1>
@@ -107,9 +109,6 @@ function App() {
             resetUserList={resetUserList}
           />
         }
-
-
-
       </main>
 
       <section ref={formRef} className='form-section'>
@@ -121,7 +120,6 @@ function App() {
           posListError={posListError}
         >
         </FormPanel>
-
       </section>
 
     </div>

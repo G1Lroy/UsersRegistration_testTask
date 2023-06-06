@@ -9,12 +9,6 @@ body {
   background-color: #E5E5E5;
 }
 
-.container {
-  max-width: 1170px;
-  padding: 0 10px;
-  margin: 0 auto;
-}
-
 ul,
 ol {
   list-style: none;
@@ -26,7 +20,6 @@ textarea,
 select {
   font: inherit;
 }
-
 
 a {
   text-decoration: none;
@@ -44,4 +37,10 @@ label {
 
 *:focus {
   outline: none;
+}
+
+.container {
+  max-width: 1170px;
+  padding: 0 10px;
+  margin: 0 auto;
 }

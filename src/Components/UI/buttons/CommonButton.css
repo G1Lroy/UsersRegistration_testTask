@@ -1,9 +1,6 @@
 .common-button {
     padding: 5px 20px;
-  
-    min-width: 100px;
     height: 35px;
-
     color: #000000;
     background-color: #F4E041;
     border-radius: 80px;
@@ -14,11 +11,9 @@
 }
 
 .common-button--disable {
-
-    width: 100px;
+    min-width: 100px;
     height: 35px;
     cursor: default;
-
     background-color: #B4B4B4;
     color: #FFFFFFDE;
     border-radius: 80px;

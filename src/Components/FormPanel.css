@@ -1,19 +1,19 @@
 .form-panel {
-    display: flex;
-    flex-direction: column;
+    max-width: 380px;
+    margin: 0 auto;
+
 }
 
+/* Inputs */
 .input-group {
     display: flex;
     flex-direction: column;
     gap: 50px;
-
 }
 
 .input-container {
     position: relative;
     max-height: 55px;
-
 }
 
 .input-group input {
@@ -25,19 +25,14 @@
 
 .input-label {
     cursor: default;
-
     color: transparent;
     padding: 1px;
-
     font-size: 12px;
     line-height: 1.17;
-
     position: absolute;
     top: -7px;
     left: 15px;
-
     transition: all 0.2s ease-in;
-
 }
 
 .input-label--active {
@@ -45,6 +40,7 @@
     background-color: #fafafa;
 }
 
+/* Radio Buttons */
 .radio-group {
     margin-top: 47px;
 }
@@ -69,7 +65,6 @@ input[type="radio"] {
     border: 1px solid #D0CFCF;
     border-radius: 50%;
     background-color: #ffffff;
-
 }
 
 .radio-icon::after {
@@ -90,15 +85,14 @@ input[type="radio"]:checked+.radio-icon::after {
 }
 
 input[type="radio"]:checked+.radio-icon {
-    border: 1px solid #00BDD3
+    border: 1px solid #00BDD3;
 }
 
 .radio-label {
     margin-left: 12px;
 }
 
-
-
+/* Upload field */
 .upload-group {
     margin-top: 50px;
     background: #F8F8F8;
@@ -106,19 +100,16 @@ input[type="radio"]:checked+.radio-icon {
     border-radius: 4px;
     display: flex;
     align-items: center;
-
 }
 
 .upload-label {
     color: #7E7E7E;
     font-size: 16px;
     line-height: 1.4;
-
 }
 
 .preview-file {
     color: rgba(0, 0, 0, 0.87);
-
 }
 
 .error-message {
@@ -133,7 +124,6 @@ input[type="radio"]:checked+.radio-icon {
     color: #7E7E7E;
 }
 
-
 .border--error {
     border: 2px solid #CB3D40;
 }
@@ -141,4 +131,10 @@ input[type="radio"]:checked+.radio-icon {
 .buttons-group {
     margin-top: 40px;
     text-align: center;
+}
+
+@media (max-width: 577px) {
+    .form-panel {
+        max-width: 328px;
+    }
 }
