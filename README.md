@@ -1,4 +1,3 @@
-# Frontend Developer Test Assignment 
 [deploy](https://ilya-potapow.github.io/UsersRegistration_testTask/)
 
 [brief](https://github.com/Ilya-Potapow/UsersRegistration_testTask/files/11665813/Frontend.Developer.Test.Assignment.pdf)
